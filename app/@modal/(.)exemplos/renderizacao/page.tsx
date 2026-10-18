@@ -3,7 +3,7 @@ import { RenderingConcept } from "@/app/exemplos/renderizacao/_components/render
 
 export default function RenderingModalPage() {
   return (
-    <RouteModal title="Renderização no servidor: SSR e SSG">
+    <RouteModal title="Tipos de renderização">
       <RenderingConcept />
     </RouteModal>
   );
