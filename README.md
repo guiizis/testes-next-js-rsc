@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+﻿# testes-next-js-rsc
 
-## Getting Started
+Projeto de estudo com Next.js App Router, React Server Components, Server Actions e MongoDB.
 
-First, run the development server:
+A rota `/bichos` consulta o banco no servidor e exibe uma tabela. O botão **Adicionar bicho** abre um modal; a Server Action valida os campos, salva o documento e atualiza a listagem.
+
+## Executar localmente
+
+```bash
+npm install
+docker compose up -d
+```
+
+Crie `.env.local` na raiz do projeto:
+
+```dotenv
+MONGODB_URI=mongodb://admin:admin@127.0.0.1:27018/rsc_test?authSource=admin
+```
+
+As credenciais acima são exclusivas do ambiente local de estudo definido no Compose. O `.env.local` não é versionado. O volume Docker preserva os documentos entre reinicializações.
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra http://localhost:3000/bichos. O banco e a coleção são criados na primeira inserção; uma base vazia mostra o estado sem cadastros.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Organização
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `components/`: tabela, header e modal reutilizáveis.
+- `app/bichos/_components/`: listagem, configuração da tabela, botão e formulário da feature.
+- `app/bichos/_actions/`: Server Action de cadastro e revalidação da página.
+- `app/bichos/_data/`: repository com operações do MongoDB.
+- `app/bichos/_lib/`: validação dos dados recebidos.
+- `app/bichos/_interfaces/`: tipos da feature.
+- `lib/db/`: cliente MongoDB exclusivo do servidor.
 
-## Learn More
+A página e a consulta permanecem no servidor. A interação do modal e do formulário usa Client Components. A consulta aguarda uma requisição com `connection()` e fica dentro de `Suspense`, pois o projeto usa Cache Components.
 
-To learn more about Next.js, take a look at the following resources:
+Este laboratório ainda não implementa autenticação ou autorização de usuários.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Verificações
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npx tsc --noEmit
+npm run lint
+npm run build
+```
 
-## Deploy on Vercel
+## Progresso
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Listagem de bichos com React Server Components.
+- Tabela e header reutilizáveis.
+- Cadastro por modal e Server Action.
+- Validação no servidor, feedback de erro e atualização da listagem.
