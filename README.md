@@ -1,6 +1,10 @@
-﻿# testes-next-js-rsc
+# Browser Labs
 
-Projeto de estudo com Next.js App Router, React Server Components, Server Actions e MongoDB.
+Exemplos para testar recursos do navegador, bibliotecas e modelos de renderização.
+
+O objetivo é estudar o comportamento e a implementação de tecnologias de frontend e da plataforma web por meio de exemplos executáveis. O Next.js é a infraestrutura da aplicação; os testes não se limitam ao framework.
+
+A página inicial reúne os exemplos disponíveis em um catálogo.
 
 A rota `/bichos` consulta o banco no servidor e exibe uma tabela. O botão **Adicionar bicho** abre um modal; a Server Action valida os campos, salva o documento e atualiza a listagem.
 
@@ -23,7 +27,7 @@ As credenciais acima são exclusivas do ambiente local de estudo definido no Com
 npm run dev
 ```
 
-Abra http://localhost:3000/bichos. O banco e a coleção são criados na primeira inserção; uma base vazia mostra o estado sem cadastros.
+Abra http://localhost:3000 para acessar o catálogo. O exemplo de React Server Components e Server Actions está em `/bichos`. O banco e a coleção são criados na primeira inserção; uma base vazia mostra o estado sem cadastros.
 
 ## Organização
 
