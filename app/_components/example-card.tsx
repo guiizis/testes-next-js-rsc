@@ -17,10 +17,17 @@ export function ExampleCard({ example }: { example: Example }) {
           ))}
         </ul>
         <div className="mt-auto flex items-center justify-between border-t border-zinc-100 pt-5 text-sm font-semibold text-emerald-700 dark:border-zinc-800 dark:text-emerald-400">
+            {example.kind === "planned" ? (
+              <span className="flex w-full items-center justify-between text-zinc-500 dark:text-zinc-400">
+                <span>Em breve<span className="sr-only">: {example.title}</span></span>
+                <span aria-hidden="true" className="text-xl">...</span>
+              </span>
+            ) : (
             <Link href={example.href} scroll={example.kind !== "modal"} prefetch={example.kind === "modal" ? false : undefined} className="flex w-full items-center justify-between rounded after:absolute after:inset-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-600">
               <span>{example.kind === "modal" ? "Ver conceito" : "Abrir exemplo"}<span className="sr-only">: {example.title}</span></span>
               <span aria-hidden="true" className="text-xl motion-safe:transition-transform motion-safe:group-hover:translate-x-1">→</span>
             </Link>
+            )}
         </div>
       </div>
     </article>

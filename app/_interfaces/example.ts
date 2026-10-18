@@ -15,4 +15,8 @@ export interface ModalExample extends BaseExample {
   href: string;
 }
 
-export type Example = PageExample | ModalExample;
+export interface PlannedExample extends BaseExample {
+  kind: "planned";
+}
+
+export type Example = PageExample | ModalExample | PlannedExample;

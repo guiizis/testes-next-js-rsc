@@ -14,7 +14,7 @@ export default function BichosPage() {
         <PageHeader
           eyebrow="Um lugar para cada bichinho"
           title="Bichos cadastrados"
-          description="Conheça os nossos companheiros e suas informações."
+          description="Testes com React Server Components, Suspense e streaming de HTML."
         />
         <AdicionarBichoButton />
         <Suspense
