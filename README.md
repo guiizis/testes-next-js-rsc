@@ -32,6 +32,9 @@ Abra http://localhost:3000 para acessar o catálogo. O exemplo de React Server C
 ## Organização
 
 - `components/`: tabela, header e modal reutilizáveis.
+- `app/page.tsx`: home com o catálogo de exemplos.
+- `app/exemplos/renderizacao/`: conteúdo específico sobre renderização, compartilhado pela página e pelo modal.
+- `app/@modal/`: slot com as rotas interceptadas que abrem exemplos em modal.
 - `app/bichos/_components/`: listagem, configuração da tabela, botão e formulário da feature.
 - `app/bichos/_actions/`: Server Action de cadastro e revalidação da página.
 - `app/bichos/_data/`: repository com operações do MongoDB.

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="530" viewBox="0 0 720 530" role="img" aria-labelledby="title desc">
+  <title id="title">SSG: HTML gerado antes da requisição</title>
+  <desc id="desc">No build, o HTML é gerado e publicado no servidor. Depois, o navegador solicita a página, recebe o HTML pronto, exibe o conteúdo e hidrata os componentes interativos.</desc>
+  <style>
+    svg{background:#fafafa;font-family:Arial,sans-serif;color:#27272a}.panel{fill:#fff;stroke:#e4e4e7}.label{fill:#27272a;font-size:16px;font-weight:600}.muted{fill:#71717a;font-size:13px}.line{stroke:#a1a1aa;stroke-dasharray:4 6}.arrow{fill:none;stroke:#047857;stroke-width:2}.note{fill:#ecfdf5;stroke:#a7f3d0}.text{fill:#065f46;font-size:14px}.phase{fill:#f4f4f5}.tag{fill:#52525b;font-size:11px;font-weight:700;letter-spacing:1.5px}
+    @media(prefers-color-scheme:dark){svg{background:#18181b;color:#e4e4e7}.panel{fill:#27272a;stroke:#3f3f46}.label{fill:#f4f4f5}.muted{fill:#a1a1aa}.phase{fill:#202023}.tag{fill:#a1a1aa}.note{fill:#052e25;stroke:#065f46}.text{fill:#a7f3d0}.arrow{stroke:#34d399}}
+    .reveal{stroke-dasharray:100;stroke-dashoffset:0;animation:draw-arrow 1s ease-in-out both}.step-1{animation-delay:.4s}.step-2{animation-delay:1.6s}.step-3{animation-delay:2.8s}
+    @keyframes draw-arrow{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
+    @media(prefers-reduced-motion:reduce){.reveal{animation:none}}
+  </style>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#10b981"/></marker></defs>
+  <defs>
+    <mask id="publish" maskUnits="userSpaceOnUse" x="345" y="197" width="270" height="30"><path class="reveal step-1" d="M600 212H360" pathLength="100" fill="none" stroke="white" stroke-width="24" stroke-linecap="round"/></mask>
+    <mask id="request" maskUnits="userSpaceOnUse" x="105" y="323" width="270" height="30"><path class="reveal step-2" d="M120 338H360" pathLength="100" fill="none" stroke="white" stroke-width="24" stroke-linecap="round"/></mask>
+    <mask id="response" maskUnits="userSpaceOnUse" x="105" y="376" width="270" height="30"><path class="reveal step-3" d="M360 391H120" pathLength="100" fill="none" stroke="white" stroke-width="24" stroke-linecap="round"/></mask>
+  </defs>
+  <rect class="phase" x="20" y="98" width="680" height="146" rx="12"/>
+  <text class="tag" x="36" y="121">01 / BUILD E PUBLICAÇÃO</text>
+  <rect class="phase" x="20" y="266" width="680" height="244" rx="12"/>
+  <text class="tag" x="36" y="290">02 / ACESSO À PÁGINA</text>
+  <g class="line"><path d="M120 70V490"/><path d="M360 70V490"/><path d="M600 70V234"/></g>
+  <g class="panel"><rect x="40" y="22" width="160" height="48" rx="10"/><rect x="270" y="22" width="180" height="48" rx="10"/><rect x="520" y="22" width="160" height="48" rx="10"/></g>
+  <g class="label" text-anchor="middle"><text x="120" y="52">Navegador</text><text x="360" y="52">Servidor / CDN</text><text x="600" y="52">Build</text></g>
+  <rect class="note" x="510" y="140" width="180" height="36" rx="8"/><text class="text" x="600" y="163" text-anchor="middle">Gera o HTML</text>
+  <text class="text" x="480" y="199" text-anchor="middle">Publica o HTML</text><path class="arrow" d="M600 212H360" marker-end="url(#arrow)" mask="url(#publish)"/>
+  <text class="text" x="240" y="325" text-anchor="middle">GET /</text><path class="arrow" d="M120 338H360" marker-end="url(#arrow)" mask="url(#request)"/>
+  <text class="text" x="240" y="378" text-anchor="middle">HTML já disponível</text><path class="arrow" d="M360 391H120" stroke-dasharray="6 5" marker-end="url(#arrow)" mask="url(#response)"/>
+  <rect class="note" x="40" y="422" width="270" height="66" rx="10"/>
+  <text class="text" x="56" y="447">Exibe o conteúdo</text><text class="muted" x="56" y="470">JS hidrata as partes interativas</text>
+  <text class="muted" x="396" y="447">Nenhuma nova renderização</text><text class="muted" x="396" y="468">é necessária para este acesso.</text>
+</svg>

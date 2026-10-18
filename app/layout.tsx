@@ -17,13 +17,13 @@ export const metadata: Metadata = {
   description: "Projeto de testes de frontend: APIs do navegador, modelos de renderização, WebAssembly e bibliotecas web.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children, modal }: { children: React.ReactNode; modal: React.ReactNode }) {
   return (
     <html
       lang="pt-BR"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">{children}{modal}</body>
     </html>
   );
 }
